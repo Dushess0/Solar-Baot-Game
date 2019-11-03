@@ -1,2 +1,2 @@
-# Solar BoatGame
+# Solar Boat Game
  
