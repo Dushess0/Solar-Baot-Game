@@ -7,11 +7,13 @@ public class BasiaController : MonoBehaviour
     bool forward = true;
     public IBattery Battery;
     public float passive_charging = 0.25f;
+    public InfoPanel infoPanel;
 
     private void Start()
     {
         Battery = GetComponent<StandartBattery>();
         Battery.Charging_multiplayer = passive_charging;
+        infoPanel.SetPage(0);
 
     }
     void ControlBoat()
@@ -63,7 +65,12 @@ public class BasiaController : MonoBehaviour
         {
             Beam beam = other.gameObject.GetComponent<Beam>();
             Battery.Charging_multiplayer = beam.charge_m;
-            Debug.Log("charging");
+            if (!beam.located)
+            {
+                beam.located = true;
+                infoPanel.mission.AddBeam(beam.transform.position);
+            }
+            
 
 
         }
@@ -74,7 +81,7 @@ public class BasiaController : MonoBehaviour
         {
            
             Battery.Charging_multiplayer = passive_charging;
-            Debug.Log("discharging");
+           
 
 
         }
@@ -83,12 +90,17 @@ public class BasiaController : MonoBehaviour
     {
         if (Battery.CurrentCapacity!=0)
           ControlBoat();
-        Debug.Log(Battery.Charging_multiplayer);
-        Battery.Usage = Battery.MaxUsage* (engine.Engine_RPM / engine.engine_max_rpm);
        
+        Battery.Usage = Battery.MaxUsage* (engine.Engine_RPM / engine.engine_max_rpm);
 
 
-      
+        if (Input.GetKey(KeyCode.M))
+            infoPanel.SetPage(1);
+
+        if (Input.GetKey(KeyCode.I))
+            infoPanel.SetPage(0);
+
+
     }
 
 }

@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Beam
+  - MissionBar
+  - Boat
   layers:
   - Default
   - TransparentFX

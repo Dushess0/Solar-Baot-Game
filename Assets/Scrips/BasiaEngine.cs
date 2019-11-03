@@ -50,7 +50,7 @@ using UnityEditor;
         rb.AddForceAtPosition(Quaternion.Euler(0, angle, 0) * propeller.up * propellers_constant * Engine_RPM, propeller.position);
             
     
-        Vector3 LiftForce = new Vector3(0, Mathf.Clamp(rb.velocity.magnitude*wingLift, 60, 300), 0);
+        Vector3 LiftForce = new Vector3(0, Mathf.Clamp(rb.velocity.magnitude*wingLift, 150, 300), 0);
         //Debug.Log(LiftForce);
         
         rb.AddForceAtPosition(LiftForce, ForwardPylon.position);

@@ -9,6 +9,7 @@ using UnityEngine;
     public float Engine_RPM;
     public float engine_max_rpm;
     public IBattery Battery;
+    
     public abstract void ThrottleUp();
     public abstract void ThrottleDown();
     public abstract void Brake();

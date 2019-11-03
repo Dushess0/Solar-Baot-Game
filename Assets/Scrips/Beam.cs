@@ -6,10 +6,13 @@ using UnityEngine;
 public class Beam : MonoBehaviour
 {
     public float charge_m = 1;
-    private void OnTriggerEnter(Collider other)
-    {
-        Debug.Log("have");
-    }
+    public bool located = false;
+    //private void OnTriggerEnter(Collider other)
+    //{
+     
+        
+          
+    //}
 
 
 }

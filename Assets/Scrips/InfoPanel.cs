@@ -8,20 +8,9 @@ public class InfoPanel : MonoBehaviour
 {
     
     public ABoat Boat;
-
-    public Text Battery_Text;
-    public Text Usage_Text;
-    public Text Charging_Text;
-    public Text Time_Text;
-
-
-    public Slider Battery_Slider;
-    public Slider Usage_Slider;
-    public Slider Charge_Slider;
-    public Slider Time_Slider;
-    public StandartBattery Battery;
-
-
+    public int selection = 0;
+    public StatusBar status;
+    public MissionBar mission;
 
 
 
@@ -31,37 +20,29 @@ public class InfoPanel : MonoBehaviour
        
 
 
-        
+    }
 
-        Battery_Slider.maxValue = Battery.MaxCapacity;
-        Usage_Slider.maxValue = Battery.MaxUsage;
-        Charge_Slider.maxValue = Battery.MaxChargingSpeed;
-        Time_Slider.maxValue = (int)(Battery.MaxCapacity / Battery.MaxUsage);
+    public void SetPage(int page)
+    {
+        if (page==0)
+        {
+            status.SetState(true);
+            mission.SetState(false);
 
-        
+        }
+        else if (page==1)
+        {
+            status.SetState(false);
+            mission.SetState(true);
+        }
+
 
     }
 
     void Update()
     {
-
-        Battery_Text.text = string.Format("{0}/{1} A/min", (int)Battery.CurrentCapacity, Battery.MaxCapacity);
-        Usage_Text.text = string.Format("{0}/{1} A/min", (int)Battery.Usage, Battery.MaxUsage);
-        Charging_Text.text = string.Format("{0}/{1} A/min", (int)Battery.ChargingSpeed, Battery.MaxChargingSpeed);
-
-        if (Battery.Usage > Battery.ChargingSpeed)
-            Time_Text.text = string.Format("-{0} Secs", (int)(60 * Battery.CurrentCapacity / (Battery.Usage - Battery.ChargingSpeed)));
-        else if (Battery.Usage < Battery.ChargingSpeed)
-            Time_Text.text = string.Format("+{0} Secs", (int)(60 * (Battery.MaxCapacity-Battery.CurrentCapacity) / ( Battery.ChargingSpeed- Battery.Usage )));
-
-
-        Battery_Slider.value = Battery.CurrentCapacity;
-        Usage_Slider.value = Battery.Usage;
-        Charge_Slider.value = Battery.ChargingSpeed;
-        Time_Slider.value = Battery.CurrentCapacity;
-
-
-
+      
 
     }
+    
 }
