@@ -41,11 +41,7 @@ public class MissionBar : MonoBehaviour,Ibar
     }
     public void SetState(bool status)
     {
-        MissionHeader.gameObject.SetActive(status);
-
-       
-        
-       
+        MissionHeader.gameObject.SetActive(status); 
 
     }
 
