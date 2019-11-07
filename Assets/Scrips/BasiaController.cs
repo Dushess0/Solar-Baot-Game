@@ -21,12 +21,12 @@ public class BasiaController : MonoBehaviour
         
         if (Input.GetKey(KeyCode.D))
             engine.RudderLeft();
-        if (Input.GetKey(KeyCode.Q))
+        if (Input.GetKey(KeyCode.A))
             engine.RudderRight();
 
         if (forward)
         {
-            if (Input.GetKey(KeyCode.Z))
+            if (Input.GetKey(KeyCode.W))
                 engine.ThrottleUp();
             else if (Input.GetKey(KeyCode.S))
             {
@@ -38,14 +38,14 @@ public class BasiaController : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.S))
                 engine.ThrottleUp();
-            else if (Input.GetKey(KeyCode.Z))
+            else if (Input.GetKey(KeyCode.W))
             {
                 engine.ThrottleDown();
                 engine.Brake();
             }
         }
 
-        if (!Input.GetKey(KeyCode.Z) && !Input.GetKey(KeyCode.S))
+        if (!Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.S))
             engine.ThrottleDown();
 
         if (engine.Engine_RPM == 0 && Input.GetKeyDown(KeyCode.S) && forward)
@@ -53,7 +53,7 @@ public class BasiaController : MonoBehaviour
             forward = false;
             engine.Reverse();
         }
-        else if (engine.Engine_RPM == 0 && Input.GetKeyDown(KeyCode.Z) && !forward)
+        else if (engine.Engine_RPM == 0 && Input.GetKeyDown(KeyCode.W) && !forward)
         {
             forward = true;
             engine.Reverse();

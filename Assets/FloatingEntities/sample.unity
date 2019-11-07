@@ -792,6 +792,61 @@ PrefabInstance:
       propertyPath: wingLift
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 3906041115299312897, guid: e7f167661800f2b47b7552ad424a8765,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.110000506
+      objectReference: {fileID: 0}
+    - target: {fileID: 3906041115299312897, guid: e7f167661800f2b47b7552ad424a8765,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.4449999
+      objectReference: {fileID: 0}
+    - target: {fileID: 3906041115299312897, guid: e7f167661800f2b47b7552ad424a8765,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.00000008940697
+      objectReference: {fileID: 0}
+    - target: {fileID: 3906041115299312897, guid: e7f167661800f2b47b7552ad424a8765,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3906041115299312897, guid: e7f167661800f2b47b7552ad424a8765,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3906041115299312897, guid: e7f167661800f2b47b7552ad424a8765,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3906041115299312897, guid: e7f167661800f2b47b7552ad424a8765,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3906041115299312897, guid: e7f167661800f2b47b7552ad424a8765,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3906041115299312897, guid: e7f167661800f2b47b7552ad424a8765,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1042537071565429309, guid: e7f167661800f2b47b7552ad424a8765,
+        type: 3}
+      propertyPath: m_projectionMatrixMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1042537071565429309, guid: e7f167661800f2b47b7552ad424a8765,
+        type: 3}
+      propertyPath: field of view
+      value: 26.991467
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e7f167661800f2b47b7552ad424a8765, type: 3}
 --- !u!1001 &2046388759
