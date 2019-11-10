@@ -19,9 +19,9 @@ public class BasiaController : MonoBehaviour
     void ControlBoat()
     {
         
-        if (Input.GetKey(KeyCode.D))
-            engine.RudderLeft();
         if (Input.GetKey(KeyCode.A))
+            engine.RudderLeft();
+        if (Input.GetKey(KeyCode.D))
             engine.RudderRight();
 
         if (forward)
@@ -70,9 +70,19 @@ public class BasiaController : MonoBehaviour
                 beam.located = true;
                 infoPanel.mission.AddBeam(beam.transform.position);
             }
+           
+        }
+        else if (other.gameObject.tag=="Oil")
+        {
+            OilProperties oil = other.gameObject.GetComponent<OilProperties>();
+            engine.engine_max_rpm /= OilProperties.slowdown;
+            if(!oil.located)
+            {
+                oil.located = true;
+                infoPanel.mission.AddSpill(oil.transform.position);
+                Debug.Log("Enter");
+            }
             
-
-
         }
     }
     private void OnTriggerExit(Collider other)
@@ -82,8 +92,11 @@ public class BasiaController : MonoBehaviour
            
             Battery.Charging_multiplayer = passive_charging;
            
-
-
+        }
+        else if (other.gameObject.tag=="Oil")
+        {
+            engine.engine_max_rpm *= OilProperties.slowdown;
+            Debug.Log("Exit");
         }
     }
     void Update()
@@ -99,6 +112,10 @@ public class BasiaController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.I))
             infoPanel.SetPage(0);
+
+       
+
+
 
 
     }

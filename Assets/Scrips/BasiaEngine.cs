@@ -50,18 +50,18 @@ using UnityEditor;
         rb.AddForceAtPosition(Quaternion.Euler(0, angle, 0) * propeller.up * propellers_constant * Engine_RPM, propeller.position);
             
     
-        Vector3 LiftForce = new Vector3(0, Mathf.Clamp(rb.velocity.magnitude*wingLift, 150, 300), 0);
+        Vector3 LiftForce = new Vector3(0, Mathf.Clamp(rb.velocity.magnitude*wingLift, 50, 200), 0);
         //Debug.Log(LiftForce);
         
         rb.AddForceAtPosition(LiftForce, ForwardPylon.position);
-        rb.AddForceAtPosition(LiftForce, BackPylon.position);
+        //rb.AddForceAtPosition(LiftForce, BackPylon.position);
         
         
         
         throttle *= (1.0F - drag * 0.001F);
         Engine_RPM = throttle * engine_max_rpm * direction;
 
-        angle = Mathf.Lerp(angle, 0.0F, 0.02F);
+        angle = Mathf.Lerp(angle, 0.0F, 0.1F);
         for (int i = 0; i < Rudders.Length; i++)
             Rudders[i].localRotation = Quaternion.Euler(0, 0, angle);
     }
@@ -92,13 +92,13 @@ using UnityEditor;
 
     public override void RudderRight()
     {
-        angle -= 0.9F;
+        angle -= 5F;
         angle = Mathf.Clamp(angle, -90F, 90F);
     }
 
     public override void RudderLeft()
     {
-        angle += 0.9F;
+        angle += 5F;
         angle = Mathf.Clamp(angle, -90F, 90F);
     }
 
